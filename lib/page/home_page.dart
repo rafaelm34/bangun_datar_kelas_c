@@ -1,3 +1,7 @@
+import 'package:bangun_datar_kelas_c/page/lingkaran_page.dart';
+import 'package:bangun_datar_kelas_c/page/panjang_page.dart';
+import 'package:bangun_datar_kelas_c/page/persegi_page.dart';
+import 'package:bangun_datar_kelas_c/page/segitiga_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -21,8 +25,30 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Expanded(child: CustomMenu(title: "Persegi", imageAsset: "assets/persegi.jpg",)),
-                Expanded(child: CustomMenu(title: "Persegi Panjang", imageAsset: "assets/panjang.jpg",)),
+                Expanded(
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PersegiPage()));
+                        },
+                        child: CustomMenu(
+                          title: "Persegi",
+                          imageAsset: "assets/persegi.jpg",
+                        ))),
+                Expanded(
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PanjangPage()));
+                        },
+                        child: CustomMenu(
+                          title: "Persegi Panjang",
+                          imageAsset: "assets/panjang.jpg",
+                        ))),
               ],
             ),
           ),
@@ -31,8 +57,32 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Expanded(child: CustomMenu(title: "Segitiga", imageAsset: "assets/segitiga.jpg",)),
-                Expanded(child: CustomMenu(title: "Lingkaran", imageAsset: "assets/lingkaran.jpg",)),
+                Expanded(
+                    child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SegitigaPage()));
+                  },
+                  child: CustomMenu(
+                    title: "Segitiga",
+                    imageAsset: "assets/segitiga.jpg",
+                  ),
+                )),
+                Expanded(
+                    child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => LingkaranPage()));
+                  },
+                  child: CustomMenu(
+                    title: "Lingkaran",
+                    imageAsset: "assets/lingkaran.jpg",
+                  ),
+                )),
               ],
             ),
           ),
@@ -66,7 +116,7 @@ class CustomMenu extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
-            Image.asset(imageAsset,alignment: Alignment.center, width: 150),
+            Image.asset(imageAsset, alignment: Alignment.center, width: 150),
             Text(
               title,
               style: TextStyle(
